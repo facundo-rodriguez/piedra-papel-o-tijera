@@ -1,0 +1,107 @@
+<div id="caja-1">jugador 1:</div>
+    
+<div id="caja-2">jugador 2:</div>
+
+  <div>El ganador es:<span id="caja-7"></span></div>
+  
+  <div > jugador 1:<span id="caja-5"></span></div>
+
+    <div >jugador 2:<span id="caja-6"></span></div>
+
+<input type="button"  value="azar" id="boton-2">
+
+
+function azar(){
+
+    const ppt= ["piedra","papel","tijera"];
+
+        
+    const caja_1=document.getElementById("caja-1");
+    
+    const caja_2=document.getElementById("caja-2");
+
+    const caja_5= document.getElementById("caja-5");
+
+    const caja_6= document.getElementById("caja-6");
+
+    const caja_7= document.getElementById("caja-7");
+
+
+
+
+    let jugador_1;
+
+    let jugador_2;
+      
+
+        jugador_1= ppt[Math.floor( Math.random()*3 ) ];
+   
+
+        jugador_2= ppt[Math.floor( Math.random()*3 ) ];
+
+
+
+caja_1.appendChild(document.createTextNode(" " + jugador_1));
+    
+caja_2.appendChild(document.createTextNode( " " + jugador_2));
+
+caja_5.innerHTML=jugador_1;
+
+caja_6.innerHTML=jugador_2;
+
+
+if(jugador_1==ppt[0] && jugador_2==ppt[1]){
+
+    caja_7.innerHTML="jugador 2";
+
+}
+else if(jugador_1==ppt[1] && jugador_2==ppt[0]){
+
+    caja_7.innerHTML="jugador 1";
+
+}
+else if(jugador_1==ppt[0] && jugador_2==ppt[2]){
+
+    caja_7.innerHTML="jugador 1";
+
+}
+else if(jugador_1==ppt[2] && jugador_2==ppt[0]){
+
+    caja_7.innerHTML="jugador 2";
+
+}
+else if(jugador_1==ppt[1] && jugador_2==ppt[2]){
+
+    caja_7.innerHTML="jugador 2";
+
+}
+
+else if(jugador_1==ppt[2] && jugador_2==ppt[1]){
+
+    caja_7.innerHTML="jugador 1";
+
+}
+
+else if(jugador_1 == jugador_2){
+
+    caja_7.innerHTML="empate";
+
+}
+else{
+
+    caja_7.innerHTML="hice algo mal :/";
+
+}
+
+
+    console.log(jugador_1);
+
+    
+    console.log(jugador_2)
+   
+}
+
+
+let boton_2=document.getElementById("boton-2");
+
+boton_2.addEventListener('click',azar);
